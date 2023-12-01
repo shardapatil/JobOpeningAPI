@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7Yjw2q467JCfWhS3r+CN/71wCM8TAXvBPEu887IG/E1u1k2t2ZkuUFtXlofOiqW2Eh9KzwKiOfTAnEZp4zS0ZA==",
+  "dgSpecHash": "spea+fRJQK8mkaacpw8JO/uDa3ABjckWLjSxfAFgwlMl5+PMWtOHLKoTUr1qL/BPt6DrpRk/dPIIK9XR6TWl0g==",
   "success": true,
-  "projectFilePath": "D:\\teknorix project\\JobOpeningsAPI\\JobOpeningsAPI.csproj",
+  "projectFilePath": "D:\\clone_TP\\JobOpeningsAPI\\JobOpeningsAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sonya\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\sonya\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

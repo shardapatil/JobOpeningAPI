@@ -12143,11 +12143,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\teknorix project\\JobOpeningsAPI\\JobOpeningsAPI.csproj",
+      "projectUniqueName": "D:\\clone_TP\\JobOpeningsAPI\\JobOpeningsAPI.csproj",
       "projectName": "JobOpeningsAPI",
-      "projectPath": "D:\\teknorix project\\JobOpeningsAPI\\JobOpeningsAPI.csproj",
+      "projectPath": "D:\\clone_TP\\JobOpeningsAPI\\JobOpeningsAPI.csproj",
       "packagesPath": "C:\\Users\\sonya\\.nuget\\packages\\",
-      "outputPath": "D:\\teknorix project\\JobOpeningsAPI\\obj\\",
+      "outputPath": "D:\\clone_TP\\JobOpeningsAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\sonya\\AppData\\Roaming\\NuGet\\NuGet.Config",

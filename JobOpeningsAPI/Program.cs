@@ -22,6 +22,31 @@ builder.Services.AddSwaggerGen(c =>
      var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
      var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
      c.IncludeXmlComments(xmlPath);
+
+     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+     {
+         Name = "Authorization",
+         Type = SecuritySchemeType.Http,
+         Scheme = "Bearer",
+         BearerFormat = "Jwt",
+         In = ParameterLocation.Header,
+         Description = "Please Insert Token"
+
+     });
+     c.AddSecurityRequirement(new OpenApiSecurityRequirement
+     {
+         {
+               new OpenApiSecurityScheme
+               {
+                   Reference = new OpenApiReference
+                   {
+                       Type = ReferenceType.SecurityScheme,
+                       Id = "Bearer"
+                   }
+               },
+              new string[] {}
+         }
+     });
  });
 
 
@@ -48,8 +73,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "JobOpeningsAPI v1"));
 }
-app.UseAuthentication();
-app.UseAuthorization();
+//app.UseAuthentication();
+//app.UseAuthorization();
 
 
 app.MapControllers();

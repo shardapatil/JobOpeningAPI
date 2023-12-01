@@ -1,5 +1,6 @@
 ﻿using JobOpeningsAPI.Data;
 using JobOpeningsAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,7 @@ namespace JobOpeningsAPI.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
+    [Authorize]
     public class JobsController : ControllerBase
     {
         private readonly JobContext _context;
@@ -67,7 +69,7 @@ namespace JobOpeningsAPI.Controllers
         /// <param name="id">Job id to be searched</param>
         /// <returns></returns>
         // GET: api/v1/Jobs/5
-       // [Authorize]
+        // [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<Job>> GetJobOpening(int id)
         {
@@ -81,13 +83,13 @@ namespace JobOpeningsAPI.Controllers
                 return NotFound();
             }
 
-            var response = new 
+            var response = new
             {
                 id = jobs.JobId,
                 code = jobs.JobCode,
                 title = jobs.JobTitle,
                 description = jobs.JobDescription,
-                location = new 
+                location = new
                 {
                     id = jobs.Location?.LocationId ?? 0,
                     title = jobs.Location?.LocationTitle,
@@ -96,7 +98,7 @@ namespace JobOpeningsAPI.Controllers
                     country = jobs.Location?.LocationCountry,
                     zip = jobs.Location?.LocationZipCode ?? 0
                 },
-                department = new 
+                department = new
                 {
                     id = jobs.Department?.DeptId ?? 0,
                     title = jobs.Department?.DeptTitle
@@ -116,19 +118,26 @@ namespace JobOpeningsAPI.Controllers
         // POST : api/v1/jobs
         //[Authorize]
         [HttpPost]
-        public async Task<ActionResult<Job>> PostJobs(Job req)
+        public async Task<ActionResult<Job>> PostJobs(JobRequest req)
         {
-            req.Department = await _context.Department.FindAsync(req.Department.DeptId);
-            req.Location = await _context.Location.FindAsync(req.Location.LocationId);
+            var jobEntity = new Job
+            {
+                JobTitle = req.JobTitle,
+                JobDescription = req.JobDescription,
+                Location = await _context.Location.FindAsync(req.LocationId),
+                Department = await _context.Department.FindAsync(req.DepartmentId),
+                JobClosingDate = req.JobClosingDate,
+                JobPostedDate = DateTime.UtcNow
+            };
 
-            _context.Job.Add(req);
+            _context.Job.Add(jobEntity);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (JobExists(req.JobId))
+                if (JobExists(jobEntity.JobId))
                 {
                     return Conflict();
                 }
@@ -138,7 +147,7 @@ namespace JobOpeningsAPI.Controllers
                 }
             }
 
-            return CreatedAtAction("GetJobOpening", new { id = req.JobId });
+            return CreatedAtAction("GetJobOpening", new { id = jobEntity.JobId }, req);
         }
 
         /// <summary>
@@ -150,14 +159,23 @@ namespace JobOpeningsAPI.Controllers
         //PUT: api/v1/jobs/5
         //[Authorize]
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutJobOpenings(int id, Job job)
+        public async Task<IActionResult> PutJobOpenings(int id, JobRequest req)
         {
-            if (id != job.JobId)
+            var existingJob = await _context.Job.FindAsync(id);
+
+            if (existingJob == null)
             {
-                return BadRequest();
+                return NotFound();
             }
 
-            _context.Entry(job).State = EntityState.Modified;
+
+            existingJob.JobTitle = req.JobTitle;
+            existingJob.JobDescription = req.JobDescription;
+            existingJob.Location = await _context.Location.FindAsync(req.LocationId);
+            existingJob.Department = await _context.Department.FindAsync(req.DepartmentId);
+            existingJob.JobClosingDate = req.JobClosingDate;
+
+            _context.Entry(existingJob).State = EntityState.Modified;
 
             try
             {

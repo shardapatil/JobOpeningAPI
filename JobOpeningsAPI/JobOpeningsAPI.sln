@@ -5,8 +5,6 @@ VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobOpeningsAPI", "JobOpeningsAPI.csproj", "{784E8498-FF43-479C-B8AF-78FE7D12BCF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestJobOpeningsAPI", "..\TestJobOpeningsAPI\TestJobOpeningsAPI.csproj", "{BA8CC2CC-98C3-44A7-9630-05D34D12465B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{784E8498-FF43-479C-B8AF-78FE7D12BCF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{784E8498-FF43-479C-B8AF-78FE7D12BCF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{784E8498-FF43-479C-B8AF-78FE7D12BCF9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BA8CC2CC-98C3-44A7-9630-05D34D12465B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BA8CC2CC-98C3-44A7-9630-05D34D12465B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BA8CC2CC-98C3-44A7-9630-05D34D12465B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BA8CC2CC-98C3-44A7-9630-05D34D12465B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

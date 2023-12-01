@@ -37,14 +37,14 @@
             <param name="id">Job id to be searched</param>
             <returns></returns>
         </member>
-        <member name="M:JobOpeningsAPI.Controllers.JobsController.PostJobs(JobOpeningsAPI.Models.Job)">
+        <member name="M:JobOpeningsAPI.Controllers.JobsController.PostJobs(JobOpeningsAPI.Models.JobRequest)">
             <summary>
             this will create a job opening and returns the job id
             </summary>
             <param name="req"></param>
             <returns></returns>
         </member>
-        <member name="M:JobOpeningsAPI.Controllers.JobsController.PutJobOpenings(System.Int32,JobOpeningsAPI.Models.Job)">
+        <member name="M:JobOpeningsAPI.Controllers.JobsController.PutJobOpenings(System.Int32,JobOpeningsAPI.Models.JobRequest)">
             <summary>
             this will edit a job opening based on job id 
             </summary>
