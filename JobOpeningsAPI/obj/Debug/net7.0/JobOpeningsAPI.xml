@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JobOpeningsAPI</name>
+    </assembly>
+    <members>
+        <member name="M:JobOpeningsAPI.Controllers.DepartmentsController.GetDepartment">
+            <summary>
+            this api returns all the departments
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JobOpeningsAPI.Controllers.DepartmentsController.PostDepartments(JobOpeningsAPI.Models.Department)">
+            <summary>
+            this api will create a department 
+            </summary>
+            <param name="req"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JobOpeningsAPI.Controllers.DepartmentsController.PutDepartments(System.Int32,JobOpeningsAPI.Models.Department)">
+            <summary>
+            this api modifies department based on department id
+            </summary>
+            <param name="id"></param>
+            <param name="req"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JobOpeningsAPI.Controllers.JobsController.GetJobs">
+            <summary>
+            Get All Jobs from database
+            </summary>
+        </member>
+        <member name="M:JobOpeningsAPI.Controllers.JobsController.GetJobOpening(System.Int32)">
+            <summary>
+            search for job based on job id passed
+            </summary>
+            <param name="id">Job id to be searched</param>
+            <returns></returns>
+        </member>
+        <member name="M:JobOpeningsAPI.Controllers.JobsController.PostJobs(JobOpeningsAPI.Models.Job)">
+            <summary>
+            this will create a job opening and returns the job id
+            </summary>
+            <param name="req"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JobOpeningsAPI.Controllers.JobsController.PutJobOpenings(System.Int32,JobOpeningsAPI.Models.Job)">
+            <summary>
+            this will edit a job opening based on job id 
+            </summary>
+            <param name="id"> job id</param>
+            <param name="job"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JobOpeningsAPI.Controllers.JobsController.ListJobs(JobOpeningsAPI.Models.JobList)">
+            <summary>
+            this api will searh based on query string, department id, location id
+            </summary>
+            <param name="request">
+            Q: Search String
+            Locationid: put location id to be searched
+            DepartmentId: put Department id to be searched</param>
+            <returns></returns>
+        </member>
+        <member name="M:JobOpeningsAPI.Controllers.LocationsController.GetLocation">
+            <summary>
+            this api returns list of location
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JobOpeningsAPI.Controllers.LocationsController.PostLocations(JobOpeningsAPI.Models.Locations)">
+            <summary>
+            this api creates location
+            </summary>
+            <param name="req"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JobOpeningsAPI.Controllers.LocationsController.PutLocationgs(System.Int32,JobOpeningsAPI.Models.Locations)">
+            <summary>
+            this api modifies location data based on location id
+            </summary>
+            <param name="id"></param>
+            <param name="req"></param>
+            <returns></returns>
+        </member>
+        <member name="T:JobOpeningsAPI.Migrations.jobopeningsmigration">
+            <inheritdoc />
+        </member>
+        <member name="M:JobOpeningsAPI.Migrations.jobopeningsmigration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:JobOpeningsAPI.Migrations.jobopeningsmigration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:JobOpeningsAPI.Migrations.jobopeningsmigration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="P:JobOpeningsAPI.Models.JobList.Q">
+            <summary>
+            Search string
+            </summary>
+        </member>
+        <member name="P:JobOpeningsAPI.Models.JobList.PageNo">
+            <summary>
+            Page number
+            </summary>
+        </member>
+        <member name="P:JobOpeningsAPI.Models.JobList.PageSize">
+            <summary>
+            Page size
+            </summary>
+        </member>
+        <member name="P:JobOpeningsAPI.Models.JobList.LocationId">
+            <summary>
+            Optional location id
+            </summary>
+        </member>
+        <member name="P:JobOpeningsAPI.Models.JobList.DepartmentId">
+            <summary>
+            Optional department id
+            </summary>
+        </member>
+    </members>
+</doc>

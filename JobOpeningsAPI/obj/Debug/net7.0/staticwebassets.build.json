@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "smEBV7KzqACzSvUP6XqTgyPPq7DW/FaKEn6vr/jBrko=",
+  "Source": "JobOpeningsAPI",
+  "BasePath": "_content/JobOpeningsAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
