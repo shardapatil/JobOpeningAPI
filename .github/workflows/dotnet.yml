@@ -24,7 +24,7 @@ jobs:
       run: dotnet restore
 
     - name: Restore dependencies for specific project
-      run: dotnet restore ../JobOpeningsAPI/JobOpeningsAPI.csproj
+      run: dotnet restore ../JobOpeningsAPI/JobOpeningsAPI.sln
     - name: Build
       run: dotnet build --no-restore
     - name: Test
