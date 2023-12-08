@@ -43,5 +43,7 @@ jobs:
       run: |
         # Add your deployment steps here, e.g., copy files, execute deployment scripts
         # Example: xcopy /s /y .\publish\* C:\Your\Deployment\Directory
+    - name: Restore dependencies
+      run: dotnet restore ./JobOpeningAPI/blob/main/JobOpeningsAPI/JobOpeningsAPI.csproj
 
 # Add more deployment steps based on your deployment environment.
