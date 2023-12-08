@@ -22,6 +22,9 @@ jobs:
         dotnet-version: 6.0.x
     - name: Restore dependencies
       run: dotnet restore
+
+    - name: Restore dependencies for specific project
+      run: dotnet restore ../JobOpeningsAPI/JobOpeningsAPI.csproj
     - name: Build
       run: dotnet build --no-restore
     - name: Test
